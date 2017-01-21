@@ -1,0 +1,23 @@
+- clean: ['~']
+
+- link:
+    ~/.editorconfig: .editorconfig
+    ~/.gitinore: .gitignore
+    ./.aliases: aliases.sh
+    ~/.bash_profile: bash_profile.sh
+    ~/.bash_prompt: bash_prompt.sh
+    ~/.bashrc: bashrc.sh
+    ~/.exports: exports.sh
+    ~/.functions: functions.sh
+    ~/.gitconfig: gitconfig
+    ~/.hushlogin: hushlogin
+    ~/.inputc: input.sh
+    ~/.ssh/config:
+        path: ssh/config
+        create: true
+    ~/.screen: screen.sh
+    ~/.extra/z.sh:
+        path: extra/z.sh
+        create: true
+
+
