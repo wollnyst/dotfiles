@@ -3,7 +3,7 @@
 - link:
     ~/.editorconfig: .editorconfig
     ~/.gitinore: .gitignore
-    ./.aliases: aliases.sh
+    ~/.aliases: aliases.sh
     ~/.bash_profile: bash_profile.sh
     ~/.bash_prompt: bash_prompt.sh
     ~/.bashrc: bashrc.sh
