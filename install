@@ -1,14 +1,29 @@
 #!/usr/bin/env bash
-
+echo $0
+echo "hello $0 $1"
 set -e
 
 CONFIG="install.conf.yaml"
+
+echo $REQUIREMENTS
 DOTBOT_DIR="dotbot"
+DOTBOT_PLUGIN_APT_GET_DIR="dotbot-apt-get"
+DOTBOT_PLUGIN_BREW_DIR="dotbot-brew"
 
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"
+git submodule update --init --recursive "${DOTBOT_PLUGIN_APT_GET_DIR}"
+git submodule update --init --recursive "${DOTBOT_PLUGIN_BREW_DIR}"
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}"
+if [[ "$1" == "--requirements" ]]; then
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir "$DOTBOT_PLUGIN_BREW_DIR" -c "requirements.brew.yaml"
+    else
+        "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir "$DOTBOT_PLUGIN_APT_GET_DIR" -c "requirements.apt.yaml"
+    fi
+
+fi
