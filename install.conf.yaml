@@ -16,8 +16,8 @@
         path: ssh/config
         create: true
     ~/.screen: screen.sh
-    ~/.extra/z.sh:
-        path: extra/z.sh
+    ~/.opt/bin/z.sh:
+        path: opt/bin/z.sh
         create: true
 
 

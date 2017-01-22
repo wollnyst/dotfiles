@@ -7,7 +7,7 @@ unset file;
 
 # z beats cd most of the time. requires z installation
 #   github.com/rupa/z
-source .extra/z.sh
+source "./.opt/bin/z.sh"
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
