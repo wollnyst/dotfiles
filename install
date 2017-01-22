@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-echo $0
-echo "hello $0 $1"
 set -e
+
+alias python=python3
 
 CONFIG="install.conf.yaml"
 
@@ -18,12 +18,12 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 git submodule update --init --recursive "${DOTBOT_PLUGIN_APT_GET_DIR}"
 git submodule update --init --recursive "${DOTBOT_PLUGIN_BREW_DIR}"
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}"
 if [[ "$1" == "--requirements" ]]; then
     if [[ "$OSTYPE" == "darwin"* ]]; then
         "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir "$DOTBOT_PLUGIN_BREW_DIR" -c "requirements.brew.yaml"
     else
         "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" --plugin-dir "$DOTBOT_PLUGIN_APT_GET_DIR" -c "requirements.apt.yaml"
     fi
-
+else
+    "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}"
 fi
