@@ -13,7 +13,6 @@ Host idnap.com
 Host mccartney
     HostName mccartney.secomba.com
     User stefan
-
 Host linux-dev
     HostName 172.16.239.132
     PermitLocalCommand yes
