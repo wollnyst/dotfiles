@@ -14,9 +14,9 @@ Host mccartney
     HostName mccartney.secomba.com
     User stefan
 
-Host sw-linux-dev
-    HostName 172.16.239.131
+Host linux-dev
+    HostName 172.16.239.132
     PermitLocalCommand yes
     # Unfortunately ssh does not support line breaks in config files
-    LocalCommand ssh -o PermitLocalCommand=no %n "which git >/dev/null && ([[ -d ~/dotfiles ]] && (echo "Updating dotfiles on %h ..." && cd ~/dotfiles && git pull -q && ./install >/dev/null) || (echo "Installing dotfiles on %h ..." && git clone -q https://github.com/wollnyst/dotfiles && ./dotfiles/install >/dev/null))"
+    LocalCommand ssh -o PermitLocalCommand=no %n "which git >/dev/null && ([[ -d ~/.dotfiles ]] && (echo "Updating .dotfiles on %h ..." && cd ~/.dotfiles && git pull -q && ./install >/dev/null) || (echo "Installing .dotfiles on %h ..." && git clone -q https://github.com/wollnyst/.dotfiles && ./.dotfiles/install >/dev/null))"
 

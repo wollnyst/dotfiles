@@ -1,2 +1,2 @@
 - apt-get:
-    - gradle
+    - vim

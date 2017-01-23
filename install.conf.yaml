@@ -1,3 +1,7 @@
+- defaults:
+    link:
+      create: true
+
 - clean: ['~']
 
 - link:
@@ -12,9 +16,9 @@
     ~/.gitconfig: gitconfig
     ~/.hushlogin: hushlogin
     ~/.inputc: input.sh
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
+    ~/.ssh/authorized_keys: ssh/authorized_keys
+    ~/.ssh/config: ssh/config
+    ~/.ssh/id_rsa.pub: ssh/id_rsa.pub
     ~/.screen: screen.sh
     ~/.opt/bin/z.sh:
         path: opt/bin/z.sh
