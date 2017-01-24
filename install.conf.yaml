@@ -23,5 +23,4 @@
     ~/.opt/bin/z.sh:
         path: opt/bin/z.sh
         create: true
-
-
+    ~/.vimrc: vimrc.sh

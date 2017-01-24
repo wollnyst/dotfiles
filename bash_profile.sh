@@ -7,7 +7,7 @@ unset file;
 
 # z beats cd most of the time. requires z installation
 #   github.com/rupa/z
-source "./.opt/bin/z.sh"
+source ~/.opt/bin/z.sh
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
@@ -17,6 +17,9 @@ shopt -s histappend;
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
+
+# Sync history accross tabs
+PROMPT_COMMAND="history -a; history -n"
 
 # Add tab completion for many Bash commands
 if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
